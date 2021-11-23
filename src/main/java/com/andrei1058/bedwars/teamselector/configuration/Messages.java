@@ -7,7 +7,6 @@ import java.util.Collections;
 
 public class Messages {
 
-    @SuppressWarnings("WeakerAccess")
     public static final String PATH = "addons.team-selector.";
     public static final String GUI_NAME = PATH + "inventory-name";
     public static final String SELECTOR_NAME = PATH + "selector-name";

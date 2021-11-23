@@ -284,4 +284,8 @@ public class TeamSelectorGUI {
         i = Main.bw.getVersionSupport().addCustomData(i, TeamSelectorGUI.TEAM_SELECTOR_IDENTIFIER);
         p.getInventory().setItem(Config.config.getInt(Config.SELECTOR_SLOT), i);
     }
+
+    public static void removeItem(Player p) {
+        p.getInventory().setItem(Config.config.getInt(Config.SELECTOR_SLOT), new ItemStack(Material.AIR));
+    }
 }
