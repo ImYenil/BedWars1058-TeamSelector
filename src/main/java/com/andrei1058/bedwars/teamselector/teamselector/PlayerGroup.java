@@ -5,7 +5,6 @@ import com.andrei1058.bedwars.api.arena.team.ITeam;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
