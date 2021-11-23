@@ -10,6 +10,8 @@ import com.andrei1058.bedwars.teamselector.listeners.InventoryListener;
 import com.andrei1058.bedwars.teamselector.listeners.PlayerInteractListener;
 import com.andrei1058.bedwars.teamselector.listeners.SelectorGuiUpdateListener;
 import com.andrei1058.spigot.updater.SpigotUpdater;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -62,6 +64,13 @@ public class Main extends JavaPlugin {
 
         //Register listeners
         registerListeners(new ArenaListener(), new InventoryListener(), new PlayerInteractListener(), new SelectorGuiUpdateListener());
+
+        // bStats
+        Metrics metrics = new Metrics(this, 9091);
+        metrics.addCustomChart(new SimplePie("selector_slot", () -> String.valueOf(Config.config.getInt(Config.SELECTOR_SLOT))));
+        metrics.addCustomChart(new SimplePie("allot_team_change", () -> String.valueOf(Config.config.getBoolean(Config.ALLOW_TEAM_CHANGE))));
+        metrics.addCustomChart(new SimplePie("balance_teams", () -> String.valueOf(Config.config.getBoolean(Config.BALANCE_TEAMS))));
+        metrics.addCustomChart(new SimplePie("balance_teams", () -> String.valueOf(Config.config.getBoolean(Config.BALANCE_TEAMS))));
 
         new SpigotUpdater(this, 60438, true).checkUpdate();
     }
