@@ -37,7 +37,9 @@ public class ArenaListener implements Listener {
         IArena a = e.getArena();
         if (a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting) {
             TeamManager.getInstance().onQuit(a, e.getPlayer());
-            TeamSelectorGUI.removeItem(e.getPlayer());
+            Bukkit.getScheduler().runTaskLater(Main.plugin, () -> {
+                TeamSelectorGUI.removeItem(e.getPlayer());
+            }, 30L);
         }
     }
 
